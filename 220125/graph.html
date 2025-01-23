@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />   
+  <title>Gráfico 2D Interativo com Sliders</title>
+  <link rel="stylesheet" href="graph.css">
+</head>
+<body>
+  <h1>Gráfico Cartesiano Interativo</h1>
+  
+  <!-- Contêiner para o gráfico -->
+  <div class="graph-container">
+    <!-- SVG com dimensões definidas, onde desenharemos eixos e ponto -->
+    <svg id="myChart" width="500" height="500">
+      <!-- Desenhando os eixos X e Y -->
+      <!-- Eixo X -->
+      <line x1="50" y1="450" x2="450" y2="450"
+            stroke="#333" stroke-width="2" />
+      <!-- Eixo Y -->
+      <line x1="50" y1="450" x2="50" y2="50"
+            stroke="#333" stroke-width="2" />
+      
+      <!-- Marcas e rótulos para o eixo X -->
+      <g id="scaleX">
+        <!-- Desenha marcas a cada 1 unidade -->
+        <!-- e rótulos correspondentes -->
+        <!-- Adicionamos 21 marcas de 0 a 20 -->
+        <script>
+          for (let i = 0; i <= 20; i++) {
+            let x = 50 + (i / 20) * 400; // 400 pixels de largura
+            // Marca
+            document.write(`<line x1="${x}" y1="450" x2="${x}" y2="445" stroke="#333" stroke-width="1" />`);
+            // Rótulo
+            document.write(`<text x="${x}" y="460" class="scale">${i}</text>`);
+          }
+        </script>
+      </g>
+      
+      <!-- Marcas e rótulos para o eixo Y -->
+      <g id="scaleY">
+        <!-- Desenha marcas a cada 1 unidade -->
+        <!-- e rótulos correspondentes -->
+        <!-- Adicionamos 21 marcas de 0 a 20 -->
+        <script>
+          for (let i = 0; i <= 20; i++) {
+            let y = 450 - (i / 20) * 400; // 400 pixels de altura
+            // Marca
+            document.write(`<line x1="50" y1="${y}" x2="45" y2="${y}" stroke="#333" stroke-width="1" />`);
+            // Rótulo
+            document.write(`<text x="35" y="${y + 5}" class="scale">${i}</text>`);
+          }
+        </script>
+      </g>
+      
+      <!-- Circulo (ponto) que vai se mover conforme os valores dos sliders -->
+      <circle id="dataPoint" cx="50" cy="450" r="6" fill="red" />
+    </svg>
+  </div>
+  
+  <!-- Controles para interação -->
+  <div class="controls">
+    <!-- Slider para X -->
+    <div class="slider-group">
+      <label for="xSlider">Valor de X:</label>
+      <input type="range" id="xSlider" min="0" max="20" step="0.1" value="10" />
+      <div class="valor-atual" id="xVal">10.0</div>
+    </div>
+    
+    <!-- Slider para Y -->
+    <div class="slider-group">
+      <label for="ySlider">Valor de Y:</label>
+      <input type="range" id="ySlider" min="0" max="20" step="0.1" value="10" />
+      <div class="valor-atual" id="yVal">10.0</div>
+    </div>
+  </div>
+  
+  <script src="graph.js"></script>
+</body>
+</html>

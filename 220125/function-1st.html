@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gráfico 2D Interativo com Equação Y = a*x + b</title>
+<link rel="stylesheet" href="funcion-1st.css">
+</head>
+<body>
+  <h1>Gráfico Cartesiano Interativo (Y = a*x + b)</h1>
+  
+  <!-- Contêiner para o gráfico -->
+  <div class="graph-container">
+    <svg id="myChart" width="500" height="500">
+      <!-- Eixo X -->
+      <line x1="50" y1="450" x2="450" y2="450" stroke="#333" stroke-width="2" />
+      <!-- Eixo Y -->
+      <line x1="50" y1="450" x2="50" y2="50" stroke="#333" stroke-width="2" />
+      
+      <!-- Marcas e rótulos para o eixo X -->
+      <g id="scaleX">
+        <script>
+          for (let i = 0; i <= 20; i++) {
+            let x = 50 + (i / 20) * 400;
+            document.write(`<line x1="${x}" y1="450" x2="${x}" y2="445" stroke="#333" stroke-width="1" />`);
+            document.write(`<text x="${x}" y="460" class="scale">${i}</text>`);
+          }
+        </script>
+      </g>
+      
+      <!-- Marcas e rótulos para o eixo Y -->
+      <g id="scaleY">
+        <script>
+          for (let i = 0; i <= 20; i++) {
+            let y = 450 - (i / 20) * 400;
+            document.write(`<line x1="50" y1="${y}" x2="45" y2="${y}" stroke="#333" stroke-width="1" />`);
+            document.write(`<text x="35" y="${y + 5}" class="scale">${i}</text>`);
+          }
+        </script>
+      </g>
+      
+      <!-- Círculo que representa o ponto (x, y) -->
+      <circle id="dataPoint" cx="50" cy="450" r="6" fill="red" />
+    </svg>
+  </div>
+  
+  <!-- Controles -->
+  <div class="controls">
+    <!-- Slider para X -->
+    <div class="slider-group">
+      <label for="xSlider">Valor de X:</label>
+      <input type="range" id="xSlider" min="0" max="20" step="0.1" value="10" />
+      <div class="valor-atual" id="xVal">10.0</div>
+    </div>
+
+    <!-- Campo de texto para a equação Y = a*x + b -->
+    <div class="equation-group">
+      <label for="equacaoInput">Equação (a*x + b):</label>
+      <input type="text" id="equacaoInput" value="2*x+5" />
+      <div class="valor-atual" id="yVal">Y = 25.0</div>
+    </div>
+  </div>
+
+<!--Primeira Versão do Código-->
+<script src="function-1st.js"></script>
+
+
+<!--Segunda Versão do Código-->
+  
+  <!-- <script src="function-1st.js"></script> -->
+  
+<!--TerceiraVersão do Código-->
+<!-- <script src="function-1st.js"></script> -->
+
+</body>
+</html>

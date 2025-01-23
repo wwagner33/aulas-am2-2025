@@ -1,0 +1,76 @@
+    /* Reset básico */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        color: #333;
+        padding: 20px;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      
+      .graph-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      #myChart {
+        background: #fff;
+        border: 2px solid #ccc;
+      }
+      
+      /* Controles */
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 20px;
+      }
+      
+      .slider-group,
+      .equation-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .slider-group label,
+      .equation-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      
+      .slider-group input[type="range"] {
+        width: 200px;
+        cursor: pointer;
+      }
+      
+      .equation-group input[type="text"] {
+        padding: 5px;
+        width: 120px;
+        text-align: center;
+      }
+      
+      .valor-atual {
+        font-size: 1rem;
+        color: #333;
+        margin-top: 5px;
+      }
+      
+      /* Texto da escala nos eixos */
+      .scale {
+        font-size: 12px;
+        fill: #000;
+        text-anchor: middle;
+      }
