@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        input,textarea{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">Cabeçalho</div>
+        <div id="main">Texto principal</div>
+    </div>
+    <form action="#" method="get" id="formulario">
+        <label for="frmNome">Nome:</label>
+        <input type="text" name="frmNome" id="frmNome"/>
+        <span id="msgNome"></span>
+
+        <label for="frmEmail">E-Mail: </label>
+        <input type="email" name="frmEmail" id="frmEmail"/>
+        <span id="msgEmail"></span>
+
+        <label for="frmMensagem">Mensagem:</label>
+        <textarea name="frmMensagem" id="frmMensagem"></textarea>
+        <span id="msgMensagem"></span>
+
+        <input type="button" value="frmEnviar"/>
+    </form>
+    <script>
+        let nome = document.getElementById("frmNome");
+        let email = document.getElementById("frmEmail");
+        let mensagem = document.getElementById("frmMensagem");
+        let btnEnviar = document.getElementById("frmEnviar");
+        let formulario = document.getElementById("formulario");
+
+        let msgNome = document.getElementById("msgNome");
+
+
+        btnEnviar.addEventListener("click",validarCampos);
+
+        function validarCampos(){
+            if(!nome){
+                msgNome.innerHTML = "Nome é obrigatório";
+            }
+
+      
+        }
+
+    </script>
+
+    <script>
+        let header = document.getElementById("header");
+        header.addEventListener("click",()=>{
+            header.innerHTML = "<h1>Novo Cabeçalho</h1>";
+        });
+        
+
+    </script>
+</body>
+</html>
